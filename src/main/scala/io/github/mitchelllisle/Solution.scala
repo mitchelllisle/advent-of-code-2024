@@ -4,7 +4,7 @@ import org.slf4j.{Logger, LoggerFactory}
 
 import scala.io.Source
 
-trait Solution {
+trait Solution[T] {
 
   lazy val logger: Logger = LoggerFactory.getLogger(this.getClass)
 
@@ -24,8 +24,8 @@ trait Solution {
     }
   }
 
-  def printSolution[T](): Unit = {
-    val solution = solve[T]()
+  def printSolution(): Unit = {
+    val solution = solve()
     logger.info(s"${this.getClass.getSimpleName} Solution: $solution")
   }
 
@@ -33,5 +33,5 @@ trait Solution {
    * Solves the problem.
    * Implement this method in your weekly solution.
    */
-  def solve[T](): T
+  def solve(): T
 }
