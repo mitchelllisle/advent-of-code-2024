@@ -45,7 +45,7 @@ import scala.collection.mutable.ArrayBuffer
 
 
 class DayOne(path: String) extends Solution {
-  private def parse(input: Seq[String]): Array[(Int, Int)] = {
+  private def parse(input: Array[String]): Array[(Int, Int)] = {
     val left = ArrayBuffer.empty[Int]
     val right = ArrayBuffer.empty[Int]
 
