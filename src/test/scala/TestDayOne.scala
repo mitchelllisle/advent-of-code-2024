@@ -1,10 +1,15 @@
-import io.github.mitchelllisle.DayOne
 
+import io.github.mitchelllisle.DayOne.{DayOnePartOne, DayOnePartTwo}
 import org.scalatest.flatspec.AnyFlatSpec
 
 class TestDayOne extends AnyFlatSpec {
-  "DayOne" should "produce correct output" in {
-    val solution = new DayOne[Int]("src/test/resources/DayOne.txt").solve()
+  "DayOnePartOne" should "produce correct output" in {
+    val solution = new DayOnePartOne[Int]("src/test/resources/DayOne.txt").solve()
     assert(solution == 11)
+  }
+
+  "DayOnePartTwo" should "produce correct output" in {
+    val solution = new DayOnePartTwo[Int]("src/test/resources/DayOne.txt").solve()
+    assert(solution == 31)
   }
 }
