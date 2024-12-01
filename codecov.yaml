@@ -1,5 +1,6 @@
 ignore:
-  - "src/main/scala/io.github.mitchelllisle/Main|Solution.scala"
+  - "src/main/scala/io.github.mitchelllisle/Main.scala"
+  - "src/main/scala/io.github.mitchelllisle/Solution.scala"  
 comment:
   layout: "header, reach, diff, files, footer"
   behavior: default
