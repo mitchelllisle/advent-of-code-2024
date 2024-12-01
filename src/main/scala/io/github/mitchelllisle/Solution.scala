@@ -15,10 +15,10 @@ trait Solution {
    * @param path the path to the file to be read
    * @return a sequence of strings, each representing a line in the file
    */
-  def read(path: String): Seq[String] = {
+  def read(path: String): Array[String] = {
     val source = Source.fromFile(path)
     try {
-      source.getLines().toSeq
+      source.getLines().toArray
     } finally {
       source.close()
     }
