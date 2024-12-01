@@ -4,7 +4,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 
 class TestDayOne extends AnyFlatSpec {
   "DayOne" should "produce correct output" in {
-    val solution = new DayOne("src/test/resources/DayOne.txt").solve[Int]()
+    val solution = new DayOne[Int]("src/test/resources/DayOne.txt").solve()
     assert(solution == 11)
   }
 }

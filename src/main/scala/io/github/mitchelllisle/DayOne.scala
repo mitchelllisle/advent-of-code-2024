@@ -42,9 +42,7 @@ import scala.collection.mutable.ArrayBuffer
  *
  * Your actual left and right lists contain many location IDs. What is the total distance between your lists?
 */
-
-
-class DayOne(path: String) extends Solution {
+class DayOne[T](path: String) extends Solution[T] {
   private def parse(input: Array[String]): Array[(Int, Int)] = {
     val left = ArrayBuffer.empty[Int]
     val right = ArrayBuffer.empty[Int]
@@ -58,7 +56,7 @@ class DayOne(path: String) extends Solution {
     left.toArray.sorted.zip(right.toArray.sorted)
   }
 
-  override def solve[T](): T = {
+  override def solve(): T = {
     val input = read(path)
     val parsed = parse(input)
 
