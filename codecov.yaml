@@ -1,3 +1,5 @@
+ignore:
+  - "src/main/scala/io.github.mitchelllisle/Main|Solution.scala"  # ignore folders and all its contents
 comment:
   layout: "header, reach, diff, files, footer"
   behavior: default
