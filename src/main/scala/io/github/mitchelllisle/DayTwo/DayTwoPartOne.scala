@@ -2,48 +2,53 @@ package io.github.mitchelllisle.DayTwo
 
 import io.github.mitchelllisle.Solution
 
-class DayTwoPartOne[T](path: String) extends Solution[T] {
-  private def withinTolerance(a: Int, b: Double): Boolean = {
-    b match {
-      case Double.NegativeInfinity => true
-      case Double.PositiveInfinity => true
-      case _ =>
-        val diff = Math.abs(a - b)
-        diff >= 1 && diff <= 3
+/**
+ * --- Day 2: Red-Nosed Reports ---
+ * Fortunately, the first location The Historians want to search isn't a long walk from the Chief Historian's office.
+ *
+ * While the Red-Nosed Reindeer nuclear fusion/fission plant appears to contain no sign of the Chief Historian, the engineers there run up to you as soon as they see you. Apparently, they still talk about the time Rudolph was saved through molecular synthesis from a single electron.
+ *
+ * They're quick to add that - since you're already here - they'd really appreciate your help analyzing some unusual data from the Red-Nosed reactor. You turn to check if The Historians are waiting for you, but they seem to have already divided into groups that are currently searching every corner of the facility. You offer to help with the unusual data.
+ *
+ * The unusual data (your puzzle input) consists of many reports, one report per line. Each report is a list of numbers called levels that are separated by spaces. For example:
+ *
+ * 7 6 4 2 1
+ * 1 2 7 8 9
+ * 9 7 6 2 1
+ * 1 3 2 4 5
+ * 8 6 4 4 1
+ * 1 3 6 7 9
+ * This example data contains six reports each containing five levels.
+ *
+ * The engineers are trying to figure out which reports are safe. The Red-Nosed reactor safety systems can only tolerate levels that are either gradually increasing or gradually decreasing. So, a report only counts as safe if both of the following are true:
+ *
+ * The levels are either all increasing or all decreasing.
+ * Any two adjacent levels differ by at least one and at most three.
+ * In the example above, the reports can be found safe or unsafe by checking those rules:
+ *
+ * 7 6 4 2 1: Safe because the levels are all decreasing by 1 or 2.
+ * 1 2 7 8 9: Unsafe because 2 7 is an increase of 5.
+ * 9 7 6 2 1: Unsafe because 6 2 is a decrease of 4.
+ * 1 3 2 4 5: Unsafe because 1 3 is increasing but 3 2 is decreasing.
+ * 8 6 4 4 1: Unsafe because 4 4 is neither an increase or a decrease.
+ * 1 3 6 7 9: Safe because the levels are all increasing by 1, 2, or 3.
+ * So, in this example, 2 reports are safe.
+ *
+ * Analyze the unusual data from the engineers. How many reports are safe?
+* */
+class DayTwoPartOne(path: String) extends Solution[Int] {
+  def isValidSequence(levels: List[Int]): Boolean = {
+    if (levels.length < 2) return true
+    val shouldIncrease = levels(1) > levels.head
+    levels.sliding(2).forall { pair =>
+      val diff = pair(1) - pair.head
+      if (shouldIncrease) diff > 0 && diff <= 3 else diff < 0 && diff >= -3
     }
   }
 
-  private def rowLogic(arr: Array[Int], increasing: Boolean): Boolean = {
-    var switch = true
-    var prev: Double = 0
-    val calc: (Int, Int) => Boolean = if (increasing) {
-      prev = Double.NegativeInfinity
-      (x: Int, y: Int) => x > y
-    } else {
-      prev = Double.PositiveInfinity
-      (x: Int, y: Int) => x < y
-    }
-
-    arr.foreach { num =>
-      if (calc(num, prev.toInt)) {
-        if (!withinTolerance(num, prev)) {
-          return false
-        }
-        switch = true
-        prev = num
-      } else {
-        return false
-      }
-    }
-    switch
-  }
-
-  override def solve(): T = {
-    val input = read(path)
-    val parsed = DayTwoUtils.parse(input)
-
-    val allIncreased = parsed.map(rowLogic(_, increasing = true))
-    val allDecreased = parsed.map(rowLogic(_, increasing = false))
-    allIncreased.zip(allDecreased).count(pair => pair._1 || pair._2).asInstanceOf[T]
+  override def solve(): Int = {
+    val lines = read(path)
+    val reports = lines.map(_.split(" ").map(_.toInt).toList)
+    reports.count(isValidSequence)
   }
 }

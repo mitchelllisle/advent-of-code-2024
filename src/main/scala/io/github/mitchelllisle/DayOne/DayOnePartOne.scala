@@ -42,8 +42,8 @@ import io.github.mitchelllisle.Solution
  *
  * Your actual left and right lists contain many location IDs. What is the total distance between your lists?
 */
-class DayOnePartOne[T](path: String) extends Solution[T] {
-  override def solve(): T = {
+class DayOnePartOne(path: String) extends Solution[Int] {
+  override def solve(): Int = {
     val input = read(path)
     val parsed = DayOneUtils.parse(input)
 
@@ -52,6 +52,6 @@ class DayOnePartOne[T](path: String) extends Solution[T] {
       Math.abs(left - right)
     }).sum
 
-    totalDistance.asInstanceOf[T]
+    totalDistance
   }
 }
