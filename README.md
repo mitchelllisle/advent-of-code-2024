@@ -3,7 +3,9 @@
 - ## DayOne - Historian Hysteria
   - [x] Part One
   - [x] Part Two
-- ## DayTwo -
+- ## DayTwo - Red-Nosed Reports
+  - [x] Part One
+  - [x] Part Two
 - ## DayThree -
 - ## DayFour -
 - ## DayFive -

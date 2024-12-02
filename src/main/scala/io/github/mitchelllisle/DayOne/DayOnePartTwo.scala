@@ -35,8 +35,8 @@ import io.github.mitchelllisle.Solution
  *
  * Once again consider your left and right lists. What is their similarity score?
  * */
-class DayOnePartTwo[T](path: String) extends Solution[T] {
-  override def solve(): T = {
+class DayOnePartTwo(path: String) extends Solution[Int] {
+  override def solve(): Int = {
     val input = read(path)
     val parsed = DayOneUtils.parse(input)
 
@@ -44,6 +44,6 @@ class DayOnePartTwo[T](path: String) extends Solution[T] {
       val n = parsed.count(_._2 == pair._1)
       pair._1 * n
     })
-    similarityScore.sum.asInstanceOf[T]
+    similarityScore.sum
   }
 }
