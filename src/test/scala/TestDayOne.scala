@@ -1,4 +1,3 @@
-
 import io.github.mitchelllisle.DayOne.{DayOnePartOne, DayOnePartTwo}
 import org.scalatest.flatspec.AnyFlatSpec
 
