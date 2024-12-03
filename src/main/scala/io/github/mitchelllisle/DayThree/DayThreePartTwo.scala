@@ -23,21 +23,8 @@ import scala.util.matching.Regex
  * Only the four highlighted sections are real mul instructions. Adding up the result of each instruction produces 161 (2*4 + 5*5 + 11*8 + 8*5).
  *
  * Scan the corrupted memory for uncorrupted mul instructions. What do you get if you add up all of the results of the multiplications?
-* */
+ * */
 class DayThreePartTwo(path: String) extends Solution[Int] {
-  private def processInstruction(mul: String): Int = {
-    val expr = "\\d+".r
-    val numbers = expr.findAllIn(mul).map(_.toInt).toList
-    val product = numbers.head * numbers(1)
-    product
-  }
-
-  private def findMatchIndices(text: String, pattern: Regex): List[(Int, String)] = {
-    pattern.findAllMatchIn(text)
-      .map(m => (m.start, m.group(0)))
-      .toList
-  }
-
   override def solve(): Int = {
     val input = read(path).mkString
     val instructionsWithPositions = findMatchIndices(input, "(mul\\(\\d+,\\d+\\))".r)
@@ -55,16 +42,29 @@ class DayThreePartTwo(path: String) extends Solution[Int] {
       }
 
       if (index < instructionsWithPositions.length - 1) {
-      val nextRow = instructionsWithPositions(index + 1)
-      val window = input.slice(position, nextRow._1)
+        val nextRow = instructionsWithPositions(index + 1)
+        val window = input.slice(position, nextRow._1)
 
-      if (window.contains("don't")) {
-        doInstruction = false
-      } else if (window.contains("do")) {
-        doInstruction = true
-      }
+        if (window.contains("don't")) {
+          doInstruction = false
+        } else if (window.contains("do")) {
+          doInstruction = true
+        }
       }
     }
     validInstructions.sum
+  }
+
+  private def processInstruction(mul: String): Int = {
+    val expr = "\\d+".r
+    val numbers = expr.findAllIn(mul).map(_.toInt).toList
+    val product = numbers.head * numbers(1)
+    product
+  }
+
+  private def findMatchIndices(text: String, pattern: Regex): List[(Int, String)] = {
+    pattern.findAllMatchIn(text)
+      .map(m => (m.start, m.group(0)))
+      .toList
   }
 }
