@@ -1,7 +1,5 @@
 package io.github.mitchelllisle.DayThree
 
-import io.github.mitchelllisle.Solution
-
 import scala.util.matching.Regex
 
 /**
@@ -24,7 +22,7 @@ import scala.util.matching.Regex
  *
  * Scan the corrupted memory for uncorrupted mul instructions. What do you get if you add up all of the results of the multiplications?
  * */
-class DayThreePartTwo(path: String) extends Solution[Int] {
+class DayThreePartTwo(path: String) extends DayThreePartOne(path) {
   override def solve(): Int = {
     val input = read(path).mkString
     val instructionsWithPositions = findMatchIndices(input, "(mul\\(\\d+,\\d+\\))".r)
@@ -53,13 +51,6 @@ class DayThreePartTwo(path: String) extends Solution[Int] {
       }
     }
     validInstructions.sum
-  }
-
-  private def processInstruction(mul: String): Int = {
-    val expr = "\\d+".r
-    val numbers = expr.findAllIn(mul).map(_.toInt).toList
-    val product = numbers.head * numbers(1)
-    product
   }
 
   private def findMatchIndices(text: String, pattern: Regex): List[(Int, String)] = {

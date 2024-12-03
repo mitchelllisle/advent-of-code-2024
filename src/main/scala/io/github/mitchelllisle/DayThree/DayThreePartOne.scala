@@ -23,7 +23,7 @@ import io.github.mitchelllisle.Solution
  * Scan the corrupted memory for uncorrupted mul instructions. What do you get if you add up all of the results of the multiplications?
 * */
 class DayThreePartOne(path: String) extends Solution[Int] {
-  private def processInstruction(mul: String): Int = {
+  def processInstruction(mul: String): Int = {
     val expr = "\\d+".r
     val numbers = expr.findAllIn(mul).map(_.toInt).toList
     val product = numbers.head * numbers(1)
