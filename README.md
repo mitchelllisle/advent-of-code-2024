@@ -6,7 +6,9 @@
 - ## DayTwo - Red-Nosed Reports
   - [x] Part One
   - [x] Part Two
-- ## DayThree -
+- ## DayThree - Mull It Over
+  - [x] Part One
+  - [x] Part Two
 - ## DayFour -
 - ## DayFive -
 - ## DaySix -

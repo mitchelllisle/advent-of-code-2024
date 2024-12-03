@@ -25,8 +25,10 @@ trait Solution[T] {
   }
 
   def printSolution(): Unit = {
+    val start = System.currentTimeMillis()
     val solution = solve()
-    logger.info(s"${this.getClass.getSimpleName} Solution: $solution")
+    val end = System.currentTimeMillis()
+    logger.info(s"${this.getClass.getSimpleName} Solution: $solution. Took ${end - start}ms")
   }
 
   /**
