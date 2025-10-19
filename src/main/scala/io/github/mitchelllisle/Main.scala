@@ -4,6 +4,7 @@ import io.github.mitchelllisle.DayFour.{DayFourPartOne, DayFourPartTwo}
 import io.github.mitchelllisle.DayOne.{DayOnePartOne, DayOnePartTwo}
 import io.github.mitchelllisle.DayTwo.{DayTwoPartOne, DayTwoPartTwo}
 import io.github.mitchelllisle.DayThree.{DayThreePartOne, DayThreePartTwo}
+import io.github.mitchelllisle.DayFive.{DayFivePartOne, DayFivePartTwo}
 
 
 object Main {
@@ -16,7 +17,9 @@ object Main {
       new DayThreePartOne("src/main/resources/DayThree.txt"),
       new DayThreePartTwo("src/main/resources/DayThree.txt"),
       new DayFourPartOne("src/main/resources/DayFour.txt"),
-      new DayFourPartTwo("src/main/resources/DayFour.txt")
+      new DayFourPartTwo("src/main/resources/DayFour.txt"),
+      new DayFivePartOne("src/main/resources/DayFive.txt"),
+      new DayFivePartTwo("src/main/resources/DayFive.txt")
     )
     solutions.foreach(_.printSolution())
   }
