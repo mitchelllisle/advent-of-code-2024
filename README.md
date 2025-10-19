@@ -9,8 +9,12 @@
 - ## DayThree - Mull It Over
   - [x] Part One
   - [x] Part Two
-- ## DayFour -
-- ## DayFive -
+- ## DayFour - Ceres Search
+  - [x] Part One
+  - [x] Part Two
+- ## DayFive - Print Queue
+  - [x] Part One
+  - [x] Part Two
 - ## DaySix -
 - ## DaySeven -
 - ## DayEight -
