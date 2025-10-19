@@ -6,7 +6,7 @@ import scala.io.Source
 
 trait Solution[T] {
 
-  lazy val logger: Logger = LoggerFactory.getLogger(this.getClass)
+  private lazy val logger: Logger = LoggerFactory.getLogger(this.getClass)
 
   /**
    * Reads the contents of a file at the given path and returns a sequence of strings,
