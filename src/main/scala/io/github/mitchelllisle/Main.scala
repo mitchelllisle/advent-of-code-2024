@@ -24,6 +24,7 @@ object Main {
       new DayFivePartTwo("src/main/resources/DayFive.txt"),
       new DaySixPartOne("src/main/resources/DaySix.txt"),
       new DaySixPartTwo("src/main/resources/DaySix.txt"),
+      new DaySixPartTwo("src/main/resources/DaySix.txt")
       new DaySevenPartOne("src/main/resources/DaySeven.txt"),
       new DaySevenPartTwo("src/main/resources/DaySeven.txt")
     )
