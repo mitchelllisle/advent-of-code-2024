@@ -15,8 +15,12 @@
 - ## DayFive - Print Queue
   - [x] Part One
   - [x] Part Two
-- ## DaySix -
-- ## DaySeven -
+- ## DaySix - Guard Gallivant
+  - [x] Part One
+  - [x] Part Two
+- ## DaySeven - Bridge Repair
+  - [x] Part One
+  - [x] Part Two
 - ## DayEight -
 - ## DayNine -
 - ## DayTen -
